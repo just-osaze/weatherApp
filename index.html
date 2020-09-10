@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#5cc6ec">
+    
+
+    <link rel="stylesheet" href="main.css">
+    <title>Weather App</title>
+</head>
+<body>    
+        <header>
+            <!-- hamburger -->
+            <div class="hamburger"></div>
+                <div class="box">
+                    <input type="text" id="search-box" autocomplete="off" placeholder="Enter a location...">
+                    <button id="search">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="136pt" version="1.1" viewBox="-1 0 136 136.21852" width="136pt">
+                            <g id="surface1">
+                                <path class="fill" d="M 93.148438 80.832031 C 109.5 57.742188 104.03125 25.769531 80.941406 9.421875 C 57.851562 -6.925781 25.878906 -1.460938 9.53125 21.632812 C -6.816406 44.722656 -1.351562 
+                                    76.691406 21.742188 93.039062 C 38.222656 104.707031 60.011719 105.605469 77.394531 95.339844 L 115.164062 132.882812 C 119.242188 137.175781 126.027344 137.347656 130.320312 
+                                    133.269531 C 134.613281 129.195312 134.785156 122.410156 130.710938 118.117188 C 130.582031 117.980469 130.457031 117.855469 130.320312 117.726562 Z M 51.308594 84.332031 C 33.0625 
+                                    84.335938 18.269531 69.554688 18.257812 51.308594 C 18.253906 33.0625 33.035156 18.269531 51.285156 18.261719 C 69.507812 18.253906 84.292969 33.011719 84.328125 51.234375 C 84.359375 
+                                    69.484375 69.585938 84.300781 51.332031 84.332031 C 51.324219 84.332031 51.320312 84.332031 51.308594 84.332031 Z M 51.308594 84.332031 " style=" stroke:none;fill-rule:nonzero;
+                                    fill:rgb(0%,0%,0%);fill-opacity:1;" />
+                            </g>
+                        </svg>
+                    </button>
+                </div>         
+        </header>
+
+        <div class="container">
+            <main class="main">
+                <!-- Temperature and type of weather -->
+                <ul class="current">
+                    <li class="temp"><span>29</span>°C</li>
+                    <li class="weather"></li>
+                </ul>
+                <!-- location and date -->
+                <section class="location">
+                    <div class="city">New York</div>
+                    <div class="date" onload="dateTime"></div>
+                </section>
+                <!-- 3 recent searches -->
+                <section class="recent">
+                    <p>Recent Searches</p>
+                    <div class="recent-search">
+                        <div class="recent-details">
+                            <button id = "close" onclick="window.onload">
+                                <svg enable-background="new 0 0 24 24" id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" 
+                                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g>
+                                        <path class="filled" d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z 
+                                          M16.9,15.5l-1.4,1.4L12,13.4l-3.5,3.5 l-1.4-1.4l3.5-3.5L7.1,8.5l1.4-1.4l3.5,3.5l3.5-3.5l1.4,1.4L13.4,12L16.9,15.5z"/>
+                                    </g>
+                                </svg>                                
+                            </button>
+                            <div class="city">Geneva</div>
+                            <img src="" alt="">
+                            <div class="temp">23<span>°C</span></div>
+                            <div class="weather">Sunny</div>
+                        </div>  
+                        <div class="recent-details">
+                            <button id = "close1" onclick="window.onload">
+                                <svg enable-background="new 0 0 24 24" id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" 
+                                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g>
+                                        <path class="filled" d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z 
+                                          M16.9,15.5l-1.4,1.4L12,13.4l-3.5,3.5 l-1.4-1.4l3.5-3.5L7.1,8.5l1.4-1.4l3.5,3.5l3.5-3.5l1.4,1.4L13.4,12L16.9,15.5z"/>
+                                    </g>
+                                </svg>
+                            </button>
+                            <div class="city">Munich</div>
+                            <img src="" alt="">
+                            <div class="temp">29<span>°C</span></div>
+                            <div class="weather">Thunderstorm</div>
+                        </div> 
+                        <div class="recent-details">
+                            <button id = "close2" onclick="window.onload">
+                                <svg enable-background="new 0 0 24 24" id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" 
+                                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g>
+                                        <path class="filled" d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z 
+                                          M16.9,15.5l-1.4,1.4L12,13.4l-3.5,3.5 l-1.4-1.4l3.5-3.5L7.1,8.5l1.4-1.4l3.5,3.5l3.5-3.5l1.4,1.4L13.4,12L16.9,15.5z"/>
+                                    </g>
+                                </svg>
+                            </button>
+                            <div class="city">Ontario</div>
+                            <img src="" alt="">
+                            <div class="temp">24<span>°C</span></div>
+                            <div class="weather">Rain</div>
+                        </div>                   
+                    </div>
+                    
+                </section>
+                <section class="forecast">
+                    <div class="hi-low">Today - Sunny<span> 29°C / 24°C</span></div>
+                    <div class="hi-low">Tomorrow - Thunderstorm<span> 23°C / 28°C</span></div>
+                    <div class="hi-low">Thursday - Rain<span> 22°C / 27°C</span></div>
+                </section>
+            </main>
+        </div>
+        
+    <div class="copyright">
+        Copyright &copy Coded by <a href="#" target="_blank">Osaze</a>. 
+     </div>
+    <script src="app.js"></script>
+</body>
+</html>
