@@ -34,7 +34,11 @@ function displayResults (weather) {
 
     let currentDate = new Date();
     let date = document.querySelector('.location .date');
-    date.innerText = dateTime(currentDate);    
+    date.innerText = dateTime(currentDate);   
+    
+    let newTime = new Date();
+    let today = document.querySelector('#today');
+    today.innerText = displayDay(newTime);
 
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`;
@@ -42,21 +46,21 @@ function displayResults (weather) {
     let weather_type = document.querySelector('.current .weather');
     weather_type.innerText = weather.weather[0].main;
 
-    let now = function displayDay() {
-        let day = new Date();
-
-        let months = ['01', '02', '03', '04', '05', '06',
-                     '07', '08', '09', '10', '11', '12'];
+    function displayDay(day) {
+        let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
         let WeekDays = ["Sun", "Mon", "Tue", "Wed",
                         "Thur", "Fri", "Sat"];
-        let date = day.getDate();
+        let newDay = WeekDays[day.getDay()];
+        let newDate = day.getDate() ;
+        let newMonth = months[day.getMonth()];
 
-        return `${WeekDays} ${date} ${months}`
+        return `${newDay} ${newDate} ${newMonth}`;
     }
 
     let hilow = document.querySelector('.hi-low');
-    hilow.innerText =  `${now} ${weather.main.temp_min}°C / ${weather.main.temp_max}°C`;
+    hilow.innerText =  `${displayDay(newTime)} \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0 ${weather.main.temp_min}°C / ${weather.main.temp_max}°C`;
 
     function dateTime(Day) {
         let months = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -84,6 +88,9 @@ document.getElementById('close1').addEventListener('click', function() {
 document.getElementById('close2').addEventListener('click', function() {
     this.parentNode.style.display = 'none';
 }, false);
+
+document.getElementsByClassName("weather").style.margin = "25px";
+
 
 
 
