@@ -89,7 +89,6 @@ document.getElementById('close2').addEventListener('click', function() {
     this.parentNode.style.display = 'none';
 }, false);
 
-document.getElementsByClassName("weather").style.margin = "25px";
 
 
 
