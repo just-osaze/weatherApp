@@ -50,7 +50,6 @@ function displayResults (weather) {
 
         let WeekDays = ["Sun", "Mon", "Tue", "Wed",
                         "Thur", "Fri", "Sat"];
-        let date = Day.getDate();
         let date = day.getDate();
 
         return `${WeekDays} ${date} ${months}`
